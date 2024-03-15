@@ -1,0 +1,51 @@
+Develop a C# program to read a text file and copy the file contents to another text file.
+System: Provides fundamental classes and base classes that define commonly-used value and reference data types, events and event handlers, interfaces, attributes, and processing exceptions.
+System.IO: Provides classes for working with files, directories, and drives.
+
+Code:
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            // Ask the user to input the file paths
+            Console.Write("Enter the path of the source text file: ");
+            string sourceFilePath = Console.ReadLine();
+
+            Console.Write("Enter the path of the destination text file: ");// Enter or choose the full path of the folder, or a variable containing the folder, to copy.
+            string destinationFilePath = Console.ReadLine();
+
+
+            // Check if the source file exists
+            if (File.Exists(sourceFilePath))
+            {
+                // Read the contents of the source file
+                string fileContents = File.ReadAllText(sourceFilePath);
+
+                // Write the contents to the destination file
+                File.WriteAllText(destinationFilePath, fileContents);
+
+                Console.WriteLine("File contents copied successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Source file does not exist.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred: " + ex.Message);
+        }
+    }
+}
+
+Output:
+for example:-
+
+Enter the path of the source text file:  C:\Users\ADMIN\OneDrive\Desktop\java code for bms
+Enter the path of the destination text file: C:\Users\ADMIN\Downloads
+
